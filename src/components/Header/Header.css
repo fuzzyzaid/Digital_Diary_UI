@@ -1,0 +1,27 @@
+#headerComponent {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 80px;
+    width: 100%;
+    background-color: #003b49;
+}
+
+#headerComponent ul {
+    list-style-type: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex;
+}
+
+#headerComponent ul a {
+    font-size: 1rem;
+    padding: 1em; /* Adjust the padding as needed */
+    text-decoration: none;
+    color: #fff;
+    margin: 0 0.5em; /* Add spacing between links */
+}
+#headerComponent nav ul a.active{
+    font-size: 1.1rem;
+    color: beige;
+}

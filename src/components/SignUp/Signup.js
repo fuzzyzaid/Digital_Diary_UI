@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 import './Signup.css';
 
 function Signup() {
+    const path = useNavigate();
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -41,6 +43,14 @@ function Signup() {
         return Object.keys(errors).length === 0;
       }
 
+      const clearData=()=>{
+        // setFullName('');
+        // setEmail('');
+        // setPassword('');
+        // setPhoneNumber('');
+        document.getElementById("signUp").reset();
+      }
+
       async function submit(e) {
         e.preventDefault();
 
@@ -55,12 +65,13 @@ function Signup() {
             try {
                 const response = await axios.post("/signup", userData);
         
-                if (response.data === "User exists") {
+                if (response.data === "User Exists") {
                     console.log("User exists");
-                    
+                     clearData();
+                    alert("User already Exits")
+                                       
                 } else if (response.data === "User Does Not Exist") {
-                      // Redirect to login page or display success message
-                   // path("/login");
+                       path("/login");
                 }
             } catch (error) {
                 console.error("Error:", error);
@@ -71,7 +82,7 @@ function Signup() {
 
 
   return (
-    <div>
+    <div id='mainContainer'>
         <h1>Sign Up</h1>
             <form onSubmit={submit} id="signUp">
                 <div className="form-group">
