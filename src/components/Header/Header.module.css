@@ -4,7 +4,7 @@
     align-items: center; /* Vertically center the content */
     height: 80px;
     width: 100%;
-    background-color: #003b49;
+    background-color: #B2D4EF;
 }
 
 #headerComponent ul {
@@ -18,10 +18,9 @@
     font-size: 1rem;
     padding: 1em; /* Adjust the padding as needed */
     text-decoration: none;
-    color: #fff;
+    color: black;
     margin: 0 0.5em; /* Add spacing between links */
 }
 #headerComponent nav ul a.active{
-    font-size: 1.1rem;
-    color: beige;
+    text-decoration: underline;
 }

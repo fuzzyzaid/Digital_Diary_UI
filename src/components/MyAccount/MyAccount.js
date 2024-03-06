@@ -1,9 +1,9 @@
 import React from 'react'
-import './MyAccount.css'
+import styles from  './MyAccount.module.css'
 
 function MyAccount() {
   return (
-    <div id='mainContainer'>MyAccount</div>
+    <div id={styles.mainContainer}>MyAccount</div>
   )
 }
 

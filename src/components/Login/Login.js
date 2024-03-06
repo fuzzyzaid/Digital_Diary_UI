@@ -1,9 +1,9 @@
 import React from 'react'
-import './Login.css'
+import styles from'./Login.module.css'
 
 function Login() {
   return (
-    <div id='mainContainer'>Login</div>
+    <div id={styles.mainContainer}>Login</div>
   )
 }
 

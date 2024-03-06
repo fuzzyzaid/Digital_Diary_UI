@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import './Signup.css';
+import styles from './Signup.module.css';
 
 function Signup() {
     const path = useNavigate();
@@ -82,35 +82,27 @@ function Signup() {
 
 
   return (
-    <div id='mainContainer'>
-        <h1>Sign Up</h1>
-            <form onSubmit={submit} id="signUp">
-                <div className="form-group">
+    <div id={styles.mainDiv}>
+         <div id={styles.mainContainer}>
+            <h1>Sign Up</h1>
+            <form onSubmit={submit}>
                     <label htmlFor="fullName">Full Name</label>
                     <input type="text" onChange={(e) => setFullName(e.target.value)} name="fullName" id="fullName" />
-                    {formErrors.fullName && <p className="errorMsg">{formErrors.fullName}</p>}
-                </div>
-                <div className="form-group">
+                    {formErrors.fullName && <p className={styles.errorMsg}>{formErrors.fullName}</p>}
                     <label htmlFor="email">Email address</label>
                     <input type="email" onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
-                    {formErrors.email && <p className="errorMsg">{formErrors.email}</p>}
-                </div>
-                <div className="form-group">
+                    {formErrors.email && <p className={styles.errorMsg}>{formErrors.email}</p>}
                     <label htmlFor="phoneNumber">Phone Number</label>
                     <input type="number" onChange={(e) => setPhoneNumber(e.target.value)} name="phoneNumber" id="phoneNumber" />
-                    {formErrors.phoneNumber && <p className="errorMsg">{formErrors.phoneNumber}</p>}
-                </div>
-                <div className="form-group">
+                    {formErrors.phoneNumber && <p   className={styles.errorMsg}>{formErrors.phoneNumber}</p>}
                     <label htmlFor="password">Password</label>
-                    <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Create your Password" name="password" />
-                    {formErrors.password && <p className="errorMsg" >{formErrors.password}</p>}
-                </div>
-                
-                <input type="submit" value="Signup" />
-               
+                    <input type="password" onChange={(e) => setPassword(e.target.value)} name="password" />   
+                    {formErrors.password && <p  className={styles.errorMsg} >{formErrors.password}</p>}
+                    <input type="submit" value="Signup" />
             </form>
-
+        </div>
     </div>
+   
   )
 }
 
