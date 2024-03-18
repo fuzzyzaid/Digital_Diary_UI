@@ -1,3 +1,74 @@
-#mainContainer{
-    min-height: 80vh;
+#mainDiv{
+    min-height: 73.1vh;
+    /* background-image: url("../../../public/Digital_Diary.png");
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.2); */
 }
+#mainContainer{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+#mainContainer h1{
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#mainContainer form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #mainContainer input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  #mainContainer input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #2E2634;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #mainContainer p {
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  #mainContainer a {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #526D82;
+    text-decoration: none;
+  }
+  
+  #mainContainer a:hover {
+    text-decoration: underline;
+  }
+
+  #mainContainer .errorMsg{
+    color: red;
+    margin-top: -15px;
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  #signLink a{
+    color: #2E2634;
+  }

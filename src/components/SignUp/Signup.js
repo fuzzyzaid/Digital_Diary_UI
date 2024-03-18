@@ -19,7 +19,7 @@ function Signup() {
           errors.fullName="Full Name is required"
           
         } else if (!/^[^-\s\d][a-zA-Z\s-]+$/.test(fullName)) {
-            errors.fullName="FullName is required"
+            errors.fullName="FullName cannot be numeric"
            
         }
     
@@ -44,11 +44,11 @@ function Signup() {
       }
 
       const clearData=()=>{
-        // setFullName('');
-        // setEmail('');
-        // setPassword('');
-        // setPhoneNumber('');
-        document.getElementById("signUp").reset();
+        setFullName('');
+        setEmail('');
+        setPassword('');
+        setPhoneNumber('');
+        // document.getElementById("signUp").reset();
       }
 
       async function submit(e) {
@@ -85,21 +85,24 @@ function Signup() {
     <div id={styles.mainDiv}>
          <div id={styles.mainContainer}>
             <h1>Sign Up</h1>
-            <form onSubmit={submit}>
+            <form onSubmit={submit} id={`signUp`}>
                     <label htmlFor="fullName">Full Name</label>
-                    <input type="text" onChange={(e) => setFullName(e.target.value)} name="fullName" id="fullName" />
+                    <input type="text" onChange={(e) => setFullName(e.target.value)} name="fullName" id="fullName" value={fullName} />
                     {formErrors.fullName && <p className={styles.errorMsg}>{formErrors.fullName}</p>}
                     <label htmlFor="email">Email address</label>
-                    <input type="email" onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
+                    <input type="email" onChange={(e) => setEmail(e.target.value)} name="email" id="email" value={email} />
                     {formErrors.email && <p className={styles.errorMsg}>{formErrors.email}</p>}
                     <label htmlFor="phoneNumber">Phone Number</label>
-                    <input type="number" onChange={(e) => setPhoneNumber(e.target.value)} name="phoneNumber" id="phoneNumber" />
+                    <input type="number" onChange={(e) => setPhoneNumber(e.target.value)} name="phoneNumber" id="phoneNumber" value={phoneNumber} />
                     {formErrors.phoneNumber && <p   className={styles.errorMsg}>{formErrors.phoneNumber}</p>}
                     <label htmlFor="password">Password</label>
-                    <input type="password" onChange={(e) => setPassword(e.target.value)} name="password" />   
+                    <input type="password" onChange={(e) => setPassword(e.target.value)} name="password" value={password} />   
                     {formErrors.password && <p  className={styles.errorMsg} >{formErrors.password}</p>}
                     <input type="submit" value="Signup" />
             </form>
+            <div id={styles.loginLink}>
+              <Link to="/login">Already have an Account. Click here to Login </Link>
+            </div>
         </div>
     </div>
    
