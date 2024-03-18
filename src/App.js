@@ -7,6 +7,7 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer/Footer';
+import AddNote from './components/AddNote/AddNote';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/myAccount" element={<MyAccount/>}/>
+            <Route path="/addNote" element={<AddNote/>}/>
           </Routes>
           <Footer/>
    </>
