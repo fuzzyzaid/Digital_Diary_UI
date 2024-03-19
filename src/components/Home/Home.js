@@ -6,7 +6,6 @@ function Home() {
   const path = useNavigate();
   const [userNotes, setUserNotes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isLoggedIn,setisLoggedIn] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,9 +14,8 @@ function Home() {
         const response = await responseData.json();  // because fetch does not return the json object thats why we have to convert it into jsona dn then use
         console.log(response);
 
-        if (response.message === "User not found") {
-            setisLoggedIn(false);
-            console.log("Please Log in to add a note");  
+        if (response.message === "Unauthorized") {
+            console.log("Please Log in to View notes");  
             path("/login");   
         }
          else if (response.userNotes) {
@@ -31,9 +29,6 @@ function Home() {
     };
     fetchData();
   }, []);
-
-
-  if(isLoggedIn){
 
     return (
       <>
@@ -72,8 +67,5 @@ function Home() {
      
     )
   }
-
-  
-}
 
 export default Home

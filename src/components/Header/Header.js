@@ -11,7 +11,8 @@ function Header() {
                 <NavLink to="/myAccount">My Account</NavLink>
                 {/* <NavLink to="/signup">Signup</NavLink> */}
                 <NavLink to="/addNote">Add Note</NavLink>
-                <NavLink to="/login">Login</NavLink>               
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/logout">Logout</NavLink>               
             </ul>
         </nav>
     </div>

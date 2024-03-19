@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./AddNote.module.css";
@@ -8,6 +8,24 @@ function AddNote() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [formErrors, setFormErrors] = useState({});
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const responseData = await fetch("/checkAuth");
+            const response = await responseData.json();  // because fetch does not return the json object thats why we have to convert it into jsona dn then use
+            console.log(response);
+            if (response.message === "Unauthorized") {
+                console.log("Please Log in to add a note");  
+                path("/login");   
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Something went wrong. Please try again.");
+        }
+        };
+        fetchData();
+      }, []);
 
     const validateForm = () => {
         const errors = {};
@@ -40,11 +58,7 @@ function AddNote() {
             try {
                 const response = await axios.post("/addNote", userNote);
                 console.log(response);
-
-                if (response.data.message === "User not found") {
-                    console.log("Please Log in to add a note");
-                    path("/login");
-                } else if (response.data.message === "Note saved successfully") {
+                if (response.data.message === "Note saved successfully") {
                     path("/");
                 }
             } catch (error) {

@@ -8,6 +8,8 @@ import Home from './components/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer/Footer';
 import AddNote from './components/AddNote/AddNote';
+import Logout from './components/Logout/Logout';
+import NoPageFound from './components/NoPageFound/NoPageFound';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/myAccount" element={<MyAccount/>}/>
             <Route path="/addNote" element={<AddNote/>}/>
+            <Route path="/logout" element={<Logout/>}/>
+            <Route path="*" element={<NoPageFound/>}/>
           </Routes>
           <Footer/>
    </>
