@@ -2,6 +2,7 @@ import React, { useState,useEffect} from 'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./AddNote.module.css";
+import Header from '../Header/Header';
 
 function AddNote() {
     const path = useNavigate();
@@ -69,6 +70,9 @@ function AddNote() {
     }
 
     return (
+        <div>
+            <Header/>
+     
        <div className={styles.mainDiv}>
            <div className={`container ${styles.container}`}>
             <div className={`card ${styles.card}`}>
@@ -93,6 +97,7 @@ function AddNote() {
                 </div>
             </div>
         </div>
+       </div>
        </div>
     )
 }

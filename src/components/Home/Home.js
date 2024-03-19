@@ -1,6 +1,7 @@
 import React,{ useState, useEffect }  from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import styles from './Home.module.css'
+import Header from '../Header/Header';
 
 function Home() {
   const path = useNavigate();
@@ -35,6 +36,8 @@ function Home() {
        {loading ? (
        <p>Loading...</p>
      ) : (
+      <div>
+        <Header/>
         <div id={styles.mainContainer}>
             <h2>My Notes</h2>
             <table className="table table-striped table-bordered">
@@ -60,6 +63,7 @@ function Home() {
                        ))}
                      </tbody>
                    </table>
+        </div>
         </div>
      )}
 

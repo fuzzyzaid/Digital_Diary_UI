@@ -14,7 +14,7 @@ import NoPageFound from './components/NoPageFound/NoPageFound';
 function App() {
   return (
    <>
-          <Header/>
+          {/* <Header/> */}
           <Routes>
             {/* By default it is / therefore it is opening the home page */}
             <Route path="/" element={<Home/>}/>  
