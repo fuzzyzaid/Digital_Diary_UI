@@ -43,8 +43,10 @@ function AddNote() {
         return Object.keys(errors).length === 0;
     }
 
-    const handleCancel = () => {
-        console.log("Cancelled");
+    const handleClear = () => {
+            setTitle('');
+            setDescription('');
+            setFormErrors({})
     };
 
     async function submit(e) {
@@ -90,8 +92,8 @@ function AddNote() {
                             {formErrors.description && <p className={styles.errorMsg}>{formErrors.description}</p>}
                         </div>
                         <div className={`text-center ${styles.buttonGroup}`}>
-                            <input type="submit" value="Save" className={`btn btn-primary ${styles.saveButton}`} />
-                            <button type="button" onClick={handleCancel} className={`btn btn-danger ${styles.cancelButton}`}>Cancel</button>
+                            <input type="submit" value="Save" className={`btn btn-outline-primary ${styles.saveButton}`} />
+                            <button type="button" onClick={handleClear} className={`btn btn-outline-danger ${styles.cancelButton}`}>Clear</button>
                         </div>
                     </form>
                 </div>

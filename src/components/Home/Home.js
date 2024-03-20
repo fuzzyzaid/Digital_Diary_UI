@@ -40,8 +40,8 @@ function Home() {
         <Header/>
         <div id={styles.mainContainer}>
             <h2>My Notes</h2>
-            <table className="table table-striped table-bordered">
-                     <thead>
+            <table className={`table table-bordered ${styles.customTable}`}>
+                     <thead className="thead-dark">
                        <tr>
                          <th>Titile</th>
                          <th>Description</th>
@@ -55,9 +55,10 @@ function Home() {
                            <td >{item.title}</td>
                            <td >{item.description}</td>
                            <td >{item.date}</td>
-                           <td >                          
-                            <button className="btn btn-primary">Edit</button>
-                            <button className='btn btn-danger' >Delete</button>
+                           <td >                  
+                            <button className={`btn btn-outline-primary btn-sm ${styles.viewBtn}`} >View Details</button>        
+                            <button className={`btn btn-outline-dark btn-sm ${styles.editBtn}`}>Edit</button>
+                            <button className={`btn btn-outline-danger btn-sm ${styles.deleteBtn}`}>Delete</button>
                             </td>
                          </tr>
                        ))}
