@@ -13,6 +13,7 @@ function Home() {
       try {
         const responseData = await fetch("/getNotes");
         const response = await responseData.json();  // because fetch does not return the json object thats why we have to convert it into jsona dn then use
+        console.log("Get Notes Response")
         console.log(response);
 
         if (response.message === "Unauthorized") {
@@ -31,6 +32,11 @@ function Home() {
     fetchData();
   }, []);
 
+  const handleView=(id)=>{
+    console.log("While sending")
+    console.log(id);
+        path("/viewNote",{state:id})
+  }
     return (
       <>
        {loading ? (
@@ -56,7 +62,7 @@ function Home() {
                            <td >{item.description}</td>
                            <td >{item.date}</td>
                            <td >                  
-                            <button className={`btn btn-outline-primary btn-sm ${styles.viewBtn}`} >View Details</button>        
+                            <button className={`btn btn-outline-primary btn-sm ${styles.viewBtn}`}   onClick={() => handleView(item._id)}>View Details</button>        
                             <button className={`btn btn-outline-dark btn-sm ${styles.editBtn}`}>Edit</button>
                             <button className={`btn btn-outline-danger btn-sm ${styles.deleteBtn}`}>Delete</button>
                             </td>

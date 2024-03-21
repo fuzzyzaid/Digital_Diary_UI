@@ -8,8 +8,6 @@ function Logout() {
           try {
             const responseData = await fetch("/logout");
             const response = await responseData.json();  // because fetch does not return the json object thats why we have to convert it into jsona dn then use
-            console.log(response);
-    
             if (response.message === "Logout Successfull") {
                 console.log("Logout Successfull");  
                 path("/login");   

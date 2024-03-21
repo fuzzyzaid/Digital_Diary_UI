@@ -66,7 +66,6 @@ function Signup() {
                 const response = await axios.post("/signup", userData);
         
                 if (response.data === "User Exists") {
-                    console.log("User exists");
                      clearData();
                     alert("User already Exits")
                                        

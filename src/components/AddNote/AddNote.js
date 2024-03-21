@@ -15,6 +15,7 @@ function AddNote() {
           try {
             const responseData = await fetch("/checkAuth");
             const response = await responseData.json();  // because fetch does not return the json object thats why we have to convert it into jsona dn then use
+            console.log("Checking Auth");
             console.log(response);
             if (response.message === "Unauthorized") {
                 console.log("Please Log in to add a note");  
@@ -60,6 +61,7 @@ function AddNote() {
 
             try {
                 const response = await axios.post("/addNote", userNote);
+                console.log("Note Added Response")
                 console.log(response);
                 if (response.data.message === "Note saved successfully") {
                     path("/");
