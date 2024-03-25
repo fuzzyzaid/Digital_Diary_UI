@@ -25,9 +25,13 @@ function ViewNote() {
              else {
                 const response = await axios.post("/viewNoteByUser", {noteId:noteId});
                 console.log(response.data);
-                if (response.data.message === "Not Found") {
+                if(response.data.message === "No notes"){
+                  alert("No notes to view")
+                }
+                else if (response.data.message === "Not Found") {
                     alert("Something went wrong")
-                } else if (response.data.notes) {
+                } 
+                else if (response.data.notes) {
                   setUserNotes(response.data.notes)
                   setLoading(false);
                 }  
