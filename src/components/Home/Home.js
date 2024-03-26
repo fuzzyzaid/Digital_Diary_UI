@@ -33,10 +33,12 @@ function Home() {
     fetchData();
   }, [reload]); // Add reload to the dependency array
 
-  const handleView = (id) => {
-    console.log("While sending")
-    console.log(id);
-    path("/viewNote", { state: id });
+  const handleView = (item) => {
+    path("/viewNote", { state: item });
+  }
+
+  const handleEdit = (item) => {
+    path("/editNote", { state: item });
   }
 
   const handleDelete = async (id) => {
@@ -81,8 +83,8 @@ function Home() {
                     <td>{item.description}</td>
                     <td>{item.date}</td>
                     <td>
-                      <button className={`btn btn-outline-primary btn-sm ${styles.viewBtn}`} onClick={() => handleView(item._id)}>View Details</button>
-                      <button className={`btn btn-outline-dark btn-sm ${styles.editBtn}`}>Edit</button>
+                      <button className={`btn btn-outline-primary btn-sm ${styles.viewBtn}`} onClick={() => handleView(item)}>View Details</button>
+                      <button className={`btn btn-outline-dark btn-sm ${styles.editBtn}`} onClick={() => handleEdit(item)}>Edit</button>
                       <button className={`btn btn-outline-danger btn-sm ${styles.deleteBtn}`} onClick={() => handleDelete(item._id)}>Delete</button>
                     </td>
                   </tr>

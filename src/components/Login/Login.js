@@ -53,7 +53,9 @@ function Login() {
 
   return (
     <div id={styles.mainDiv}>
-      
+       <div id={styles.headerComponent}>
+        <img id={styles.logo} src='/logo.png'></img>
+       </div>
       <div id={styles.mainContainer}>
             <h1>Login</h1>
             <form onSubmit={submit} id={`login`}>

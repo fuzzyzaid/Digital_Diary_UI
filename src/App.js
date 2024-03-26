@@ -11,6 +11,7 @@ import AddNote from './components/AddNote/AddNote';
 import Logout from './components/Logout/Logout';
 import NoPageFound from './components/NoPageFound/NoPageFound';
 import ViewNote from './components/ViewNote/ViewNote';
+import EditNote from './components/EditNote/EditNote';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/addNote" element={<AddNote/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/viewNote" element={<ViewNote/>}/>
+            <Route path="/editNote" element={<EditNote/>}/>
             <Route path="*" element={<NoPageFound/>}/>
             
           </Routes>
