@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Routes,Route } from 'react-router-dom';
 import Signup from './components/SignUp/Signup'
-import Header from './components/Header/Header';
 import MyAccount from './components/MyAccount/MyAccount';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';

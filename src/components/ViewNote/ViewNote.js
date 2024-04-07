@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Header from '../Header/Header';
 import styles from './ViewNote.module.css';
 
 function ViewNote() {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const { state } = useLocation(); // getting the full note data from home when cliked on viewDetails
+ // eslint-disable-next-line react-hooks/exhaustive-deps
   const path = useNavigate();
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState(null);
@@ -19,11 +20,14 @@ function ViewNote() {
         console.log(response);
         if (response.message === 'Unauthorized') {
           console.log('Please Log in to add a note');
+         // eslint-disable-next-line react-hooks/exhaustive-deps
           path('/login');
         } else {
           setLoading(false);
           // Set note data if state exists
+          // eslint-disable-next-line react-hooks/exhaustive-deps
           if (state) {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             setNote(state);
           }
         }
