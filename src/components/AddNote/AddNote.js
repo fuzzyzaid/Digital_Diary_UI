@@ -5,7 +5,6 @@ import styles from "./AddNote.module.css";
 import Header from '../Header/Header';
 
 function AddNote() {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const path = useNavigate();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -19,8 +18,7 @@ function AddNote() {
             console.log("Checking Auth");
             console.log(response);
             if (response.message === "Unauthorized") {
-                console.log("Please Log in to add a note"); 
-                // eslint-disable-next-line react-hooks/exhaustive-deps 
+                console.log("Please Log in to add a note");         
                 path("/login");   
             }
         } catch (error) {
@@ -29,7 +27,7 @@ function AddNote() {
         }
         };
         fetchData();
-      }, []);
+      }, [path]);
 
     const validateForm = () => {
         const errors = {};

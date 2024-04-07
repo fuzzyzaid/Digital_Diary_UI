@@ -19,15 +19,12 @@ function ViewNote() {
         console.log('Checking Auth');
         console.log(response);
         if (response.message === 'Unauthorized') {
-          console.log('Please Log in to add a note');
-         // eslint-disable-next-line 
+          console.log('Please Log in to add a note') 
           path('/login');
         } else {
           setLoading(false);
-          // Set note data if state exists
-          // eslint-disable-next-line 
-          if (state) {
-            // eslint-disable-next-line 
+          // Set note data if state exist 
+          if (state) { 
             setNote(state);
           }
         }
@@ -37,7 +34,7 @@ function ViewNote() {
       }
     };
     fetchData();
-  }, []);
+  }, [path,state]);
 
   return (
     <>
