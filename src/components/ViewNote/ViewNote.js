@@ -4,9 +4,9 @@ import Header from '../Header/Header';
 import styles from './ViewNote.module.css';
 
 function ViewNote() {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line 
   const { state } = useLocation(); // getting the full note data from home when cliked on viewDetails
- // eslint-disable-next-line react-hooks/exhaustive-deps
+ // eslint-disable-next-line 
   const path = useNavigate();
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState(null);
@@ -20,14 +20,14 @@ function ViewNote() {
         console.log(response);
         if (response.message === 'Unauthorized') {
           console.log('Please Log in to add a note');
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+         // eslint-disable-next-line 
           path('/login');
         } else {
           setLoading(false);
           // Set note data if state exists
-          // eslint-disable-next-line react-hooks/exhaustive-deps
+          // eslint-disable-next-line 
           if (state) {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+            // eslint-disable-next-line 
             setNote(state);
           }
         }

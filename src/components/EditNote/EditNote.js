@@ -4,8 +4,9 @@ import axios from 'axios';
 import Header from '../Header/Header';
 import styles from './EditNote.module.css'
 function EditNote() {
-
+ // eslint-disable-next-line react-hooks/exhaustive-deps
   const { state } = useLocation(); // getting the full note data from home when cliked on viewDetails
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const path = useNavigate();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -21,12 +22,17 @@ function EditNote() {
         console.log(response);
         if (response.message === 'Unauthorized') {
           console.log('Please Log in to add a note');
+          // eslint-disable-next-line react-hooks/exhaustive-deps
           path('/login');
         } else {
           // Set note data if state exists
+          // eslint-disable-next-line react-hooks/exhaustive-deps
           if (state) {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             setTitle(state.title)
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             setDescription(state.description)
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             setId(state._id)
           }
         }
