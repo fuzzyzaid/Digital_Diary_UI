@@ -9,7 +9,7 @@ function Home() {
   const [userNotes, setUserNotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false); // State variable for triggering reload
-
+  const [isNotes, setisNotes] = useState(false)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,9 +21,14 @@ function Home() {
         if (response.message === "Unauthorized") {
           console.log("Please Log in to View notes");
           path("/login");
-        } else if (response.userNotes) {
+        } else if(response.message === "No notes"){
+          setLoading(false);
+          setisNotes(false);
+        }
+        else if (response.userNotes) {
           setUserNotes(response.userNotes.notes);
           setLoading(false);
+          setisNotes(true);
         }
       } catch (error) {
         console.error("Error:", error);
@@ -67,6 +72,10 @@ function Home() {
           <Header />
           <div id={styles.mainContainer}>
             <h2>My Notes</h2>
+            {!isNotes && (
+             <h5>No Notes to display</h5>
+          )}
+           {isNotes && (
             <table className={`table table-bordered ${styles.customTable}`}>
               <thead className="thead-dark">
                 <tr>
@@ -91,6 +100,7 @@ function Home() {
                 ))}
               </tbody>
             </table>
+             )}
           </div>
         </div>
       )}
