@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from './Home.module.css';
@@ -10,14 +10,14 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false); // State variable for triggering reload
   const [isNotes, setisNotes] = useState(false)
-  let api='';
+  const apiRef = useRef();
   useEffect(() => {
     const fetchData = async () => {
       try {
         if(process.env.PROXY_URL === "https://digital-diary-backend-r718.onrender.com"){
-          api="/api";
+          apiRef.current="/api";
         }
-        const responseData = await fetch(`"${api}/getNotes"`);
+        const responseData = await fetch(`"${apiRef.current}/getNotes"`);
         console.log(`"${api}/getNotes"`);
         const response = await responseData.json();
         console.log("Get Notes Response")
