@@ -1,4 +1,4 @@
-import React, { useState,useRef } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import styles from'./Login.module.css'
@@ -8,7 +8,6 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formErrors,setFormErrors] = useState({});
-  const apiRef = useRef();
 
   const validateForm = ()=> {
     const errors={};
@@ -37,10 +36,8 @@ function Login() {
         };
     
         try {
-          if(process.env.PROXY_URL === "https://digital-diary-backend-r718.onrender.com"){
-            apiRef.current="/api";
-          }
-          const response = await axios.post(`"${apiRef.current}/login"`, userCredentials);
+         
+          const response = await axios.post("/login", userCredentials);
           if (response.data.message === "Incorrect password") {
               alert("Invalid Credentials");
           } else if (response.data.message === "User not found") {
