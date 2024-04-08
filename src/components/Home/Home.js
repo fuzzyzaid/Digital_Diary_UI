@@ -18,7 +18,6 @@ function Home() {
           apiRef.current="/api";
         }
         const responseData = await fetch(`"${apiRef.current}/getNotes"`);
-        console.log(`"${api}/getNotes"`);
         const response = await responseData.json();
         console.log("Get Notes Response")
         console.log(response);

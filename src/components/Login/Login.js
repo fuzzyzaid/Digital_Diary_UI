@@ -40,7 +40,6 @@ function Login() {
           if(process.env.PROXY_URL === "https://digital-diary-backend-r718.onrender.com"){
             apiRef.current="/api";
           }
-          console.log(`"${api}/getNotes"`);
           const response = await axios.post(`"${apiRef.current}/login"`, userCredentials);
           if (response.data.message === "Incorrect password") {
               alert("Invalid Credentials");
