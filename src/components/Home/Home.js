@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseData = await fetch("/api/getNotes");
+        const responseData = await fetch("/getNotes");
         const response = await responseData.json();
         console.log("Get Notes Response")
         console.log(response);
