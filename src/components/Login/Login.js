@@ -8,7 +8,11 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formErrors,setFormErrors] = useState({});
-
+  
+  let api ='';
+  if(process.env.PROXY_URL === "https://digital-diary-backend-r718.onrender.com"){
+    api='/api'
+  } 
   const validateForm = ()=> {
     const errors={};
 
@@ -37,7 +41,7 @@ function Login() {
     
         try {
          
-          const response = await axios.post("/login", userCredentials);
+          const response = await axios.post(`${api}/login`, userCredentials);
           if (response.data.message === "Incorrect password") {
               alert("Invalid Credentials");
           } else if (response.data.message === "User not found") {

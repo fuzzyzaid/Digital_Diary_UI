@@ -10,10 +10,15 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false); // State variable for triggering reload
   const [isNotes, setisNotes] = useState(false)
+
+  let api ='';
+  if(process.env.PROXY_URL === "https://digital-diary-backend-r718.onrender.com"){
+    api='/api'
+  } 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseData = await fetch("/getNotes");
+        const responseData = await fetch(`${api}/getNotes`);
         const response = await responseData.json();
         console.log("Get Notes Response")
         console.log(response);
