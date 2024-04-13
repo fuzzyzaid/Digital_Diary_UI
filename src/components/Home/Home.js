@@ -37,7 +37,7 @@ function Home() {
       }
     };
     fetchData();
-  }, [api,path,reload]); // Add reload to the dependency array
+  }, [path,reload]); // Add reload to the dependency array
 
   const handleView = (item) => {
     path("/viewNote", { state: item });
