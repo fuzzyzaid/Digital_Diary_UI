@@ -8,6 +8,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [formErrors,setFormErrors] = useState({});
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
   
   const validateForm = ()=> {
     const errors={};
@@ -37,7 +38,7 @@ function Login() {
     
         try {
          
-          const response = await axios.post("/login", userCredentials);
+          const response = await axios.post(`${backendUrl}/login`, userCredentials);
           if (response.data.message === "Incorrect password") {
               alert("Invalid Credentials");
           } else if (response.data.message === "User not found") {

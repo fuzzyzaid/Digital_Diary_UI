@@ -10,11 +10,12 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false); // State variable for triggering reload
   const [isNotes, setisNotes] = useState(false)
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseData = await fetch("/api/getNotes");
+        const responseData = await fetch(`${backendUrl}/getNotes`);
         const response = await responseData.json();
         console.log("Get Notes Response")
         console.log(response);
@@ -37,7 +38,7 @@ function Home() {
       }
     };
     fetchData();
-  }, [path,reload]); // Add reload to the dependency array
+  }, [backendUrl,path,reload]); // Add reload to the dependency array
 
   const handleView = (item) => {
     path("/viewNote", { state: item });
