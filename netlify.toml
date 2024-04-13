@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://digital-diary-backend-r718.onrender.com/api:splat"
+  to = "https://digital-diary-backend-r718.onrender.com/:splat"
   status = 200
   force = true
 
