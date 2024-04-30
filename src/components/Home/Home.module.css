@@ -10,7 +10,7 @@
 }
 .bgColor,
 .addNoteBtn {
-  background-color: #1b365d;
+  background-color: #1b365d !important;
 }
 .addNoteBtn :hover {
   background-color: #1b365d !important;
