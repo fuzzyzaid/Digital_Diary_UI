@@ -1,22 +1,22 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom';
-import styles from './Header.module.css'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <div id={styles.headerComponent}>
-        <nav>
-            <ul>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/myAccount">My Account</NavLink>
-                {/* <NavLink to="/signup">Signup</NavLink> */}
-                <NavLink to="/addNote">Add Note</NavLink>
-                {/* <NavLink to="/login">Login</NavLink> */}
-                <NavLink to="/logout">Logout</NavLink>               
-            </ul>
-        </nav>
+    <div className="d-flex justify-content-between align-items-center">
+      <h2 className="m-4">DiZtal Diary</h2>
+      <nav>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}>
+            <NavLink to="/logout">
+              <i className={`bi bi-box-arrow-right ${styles.logoutIcon}`}></i>
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

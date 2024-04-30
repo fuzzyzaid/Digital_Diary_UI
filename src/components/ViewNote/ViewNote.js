@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Header from '../Header/Header';
-import styles from './ViewNote.module.css';
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import Header from "../Header/Header";
+import styles from "./ViewNote.module.css";
 
 function ViewNote() {
-  // eslint-disable-next-line 
-  const { state } = useLocation(); // getting the full note data from home when cliked on viewDetails
- // eslint-disable-next-line 
+  const { state } = useLocation();
   const path = useNavigate();
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState(null);
@@ -14,27 +12,23 @@ function ViewNote() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseData = await fetch('/checkAuth');
+        const responseData = await fetch("/checkAuth");
         const response = await responseData.json();
-        console.log('Checking Auth');
-        console.log(response);
-        if (response.message === 'Unauthorized') {
-          console.log('Please Log in to add a note') 
-          path('/login');
+        if (response.message === "Unauthorized") {
+          path("/login");
         } else {
           setLoading(false);
-          // Set note data if state exist 
-          if (state) { 
+          if (state) {
             setNote(state);
           }
         }
       } catch (error) {
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again.');
+        console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
       }
     };
     fetchData();
-  }, [path,state]);
+  }, [path, state]);
 
   return (
     <>
@@ -43,27 +37,27 @@ function ViewNote() {
       ) : (
         <div>
           <Header />
-          <div id={styles.mainContainer}>
-            <h2>My Notes</h2>
-            <table className={`table table-bordered ${styles.customTable}`}>
-              <thead className="thead-dark">
-                <tr>
-                  <th>Titile</th>
-                  <th>Description</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Check if note is not null before rendering */}
-                {note && (
-                  <tr>
-                    <td>{note.title}</td>
-                    <td>{note.description}</td>
-                    <td>{note.date}</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+          <div className={`container mt-4 ${styles.mainContainer}`}>
+            <div className="row">
+              <div className="col-md-6 mx-auto">
+                <div className="card">
+                  <div className="card-header">
+                    <h5 className="card-title">{note.title}</h5>
+                  </div>
+                  <div className="card-body">
+                    <p className="card-text">{note.description}</p>
+                    <p className="card-text">
+                      <small className="text-muted">{note.date}</small>
+                    </p>
+                  </div>
+                  <div className="card-footer d-flex justify-content-end">
+                    <Link to="/" className="btn btn-outline-primary">
+                      Back
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

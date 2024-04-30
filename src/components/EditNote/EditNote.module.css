@@ -1,31 +1,28 @@
-.mainDiv{
-    height: 68vh;
-}
 .container {
-    display: flex;
-    justify-content: center;
-    margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
 }
 
 .card {
-    width: 100%;
-    max-width: 500px; /* Adjust the maximum width of the card */
-    padding: 20px;
-    border-radius: 10px; /* Add some border-radius for a nicer look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  width: 100%;
+  max-width: 500px; /* Adjust the maximum width of the card */
+  padding: 20px;
+  border-radius: 10px; /* Add some border-radius for a nicer look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 .errorMsg {
-    color: red;
+  color: red;
 }
-.customTextarea{
-    height: 120px;
+.customTextarea {
+  height: 120px;
 }
-.formGroup{
-    margin-bottom: 30px;
+.formGroup {
+  margin-bottom: 30px;
 }
-.buttonGroup{
-    margin-top: 50px;
+.buttonGroup {
+  margin-top: 50px;
 }
-.saveButton{
-    margin-right: 20px;
+.saveButton {
+  margin-right: 20px;
 }

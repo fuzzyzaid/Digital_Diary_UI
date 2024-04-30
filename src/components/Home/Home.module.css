@@ -1,13 +1,17 @@
-#mainContainer{
-    min-height: 80vh;
+.viewBtn {
+  margin-right: 15px;
 }
-.customTable{
-    width: 60% !important;
-    margin-left: 20%;
+.editBtn {
+  margin-right: 15px;
 }
-.viewBtn{
-    margin-right: 15px;
+.viewDetailsBtn {
+  color: #1b365d !important;
+  text-decoration: none !important;
 }
-.editBtn{
-    margin-right: 15px;
+.bgColor,
+.addNoteBtn {
+  background-color: #1b365d;
+}
+.addNoteBtn :hover {
+  background-color: #1b365d !important;
 }

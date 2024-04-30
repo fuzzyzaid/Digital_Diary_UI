@@ -1,13 +1,10 @@
-#mainContainer{
-    min-height: 80vh;
+.customTable {
+  width: 60% !important;
+  margin-left: 20%;
 }
-.customTable{
-    width: 60% !important;
-    margin-left: 20%;
+.viewBtn {
+  margin-right: 15px;
 }
-.viewBtn{
-    margin-right: 15px;
-}
-.editBtn{
-    margin-right: 15px;
+.editBtn {
+  margin-right: 15px;
 }

@@ -1,27 +1,17 @@
-#headerComponent {
-    display: flex;
-    justify-content: center; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content */
-    height: 80px;
-    width: 100%;
-    /* background-color: #B2D4EF; */
-    background-color: #2E2634;
+.logoutIcon {
+  font-size: 30px;
+  color: #1b365d;
 }
 
-#headerComponent ul {
-    list-style-type: none;
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex;
+.navList {
+  list-style: none;
 }
 
-#headerComponent ul a {
-    font-size: 1rem;
-    padding: 1em; /* Adjust the padding as needed */
-    text-decoration: none;
-    color: white;
-    margin: 0 0.5em; /* Add spacing between links */
+.navItem {
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
 }
-#headerComponent nav ul a.active{
-    text-decoration: underline;
+
+h2 {
+  color: #1b365d !important;
 }
