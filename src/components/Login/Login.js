@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import Api from "../Api/Api";
@@ -9,7 +8,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const validateForm = () => {
     const errors = {};
