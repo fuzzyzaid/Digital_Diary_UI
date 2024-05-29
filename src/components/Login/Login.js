@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./Login.module.css";
+import Api from "../Api/Api";
 
 function Login() {
   const path = useNavigate();
@@ -37,7 +38,7 @@ function Login() {
       };
 
       try {
-        const response = await axios.post(`/login`, userCredentials);
+        const response = await Api.post(`/login`, userCredentials);
         if (response.data.message === "Incorrect password") {
           alert("Invalid Credentials");
         } else if (response.data.message === "User not found") {
