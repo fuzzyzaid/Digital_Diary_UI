@@ -16,12 +16,8 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-<<<<<<< HEAD
         const responseData = await fetch(`${backendUrl}` + '/getNotes');
         console.log(`${backendUrl}` + '/getNotes');
-=======
-        const responseData = await Api.fetch(`/getNotes`);
->>>>>>> 5d7fcd8beddf113123fff9d843e564d78ed5ecb5
         const response = await responseData.json();
 
         if (response.message === "Unauthorized") {
