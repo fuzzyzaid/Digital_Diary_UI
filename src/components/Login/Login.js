@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./Login.module.css";
+import Api from "../Api/Api";
 
 function Login() {
   const path = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const validateForm = () => {
     const errors = {};
@@ -37,7 +36,11 @@ function Login() {
       };
 
       try {
+<<<<<<< HEAD
         const response = await axios.post(`${backendUrl}` + '/login', userCredentials);
+=======
+        const response = await Api.post(`/login`, userCredentials);
+>>>>>>> 5d7fcd8beddf113123fff9d843e564d78ed5ecb5
         if (response.data.message === "Incorrect password") {
           alert("Invalid Credentials");
         } else if (response.data.message === "User not found") {
