@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../Header/Header";
 import styles from "./Home.module.css";
-import Api from "../Api/Api";
 
 function Home() {
   const path = useNavigate();
@@ -16,7 +15,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseData = await fetch(`${backendUrl}` + '/getNotes');
+        const responseData = await fetch(`${backendUrl}/getNotes`);
         console.log(`${backendUrl}` + '/getNotes');
         const response = await responseData.json();
 
