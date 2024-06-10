@@ -37,13 +37,7 @@ function Login() {
       };
 
       try {
-        const response = await axios.post(`${backendUrl}/login`, userCredentials,{
-          method: 'POST',
-          credentials: 'include', // Ensure credentials are included
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
+        const response = await axios.post(`${backendUrl}/login`, userCredentials,{withCredentials: true});
         if (response.data.message === "Incorrect password") {
           alert("Invalid Credentials");
         } else if (response.data.message === "User not found") {
